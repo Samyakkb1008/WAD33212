@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Register - Image Gallery</title>
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .success-message {
+            display: none;
+            color: green;
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" id="registerPage" style="background-color:aliceblue;">
+        <div data-role="header" data-theme="b">
+            <h1>My Website</h1>
+        </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="index.html" data-ajax="false">Home</a></li>
+                <li><a href="about_us.html" data-ajax="false">About</a></li>
+                <li><a href="#registerPage" class="ui-btn-active">Register</a></li>
+            </ul>
+        </div>
+        <div style="text-align: center;">
+            <h3>Register for Newsletter</h3>
+        </div>
+        
+        <div class="form-container">
+            <form id="registerForm">
+                <div class="ui-field-contain">
+                    <label for="name">Full Name:</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" name="phone" id="phone" required>
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="interests">Interests:</label>
+                    <select name="interests" id="interests" multiple="multiple" data-native-menu="false">
+                        <option>Select your interests</option>
+                        <option value="nature">Nature Photography</option>
+                        <option value="portrait">Portrait Photography</option>
+                        <option value="landscape">Landscape Photography</option>
+                        <option value="wildlife">Wildlife Photography</option>
+                    </select>
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label>
+                        <input type="checkbox" name="terms" required>
+                        I agree to receive newsletters
+                    </label>
+                </div>
+                
+                <button type="submit" class="ui-btn ui-btn-b">Register</button>
+            </form>
+            <div class="success-message">Registration successful! Thank you for subscribing.</div>
+        </div>
+
+        <div data-role="footer">
+            <div style="text-align: center;">
+                <a href="index.html" class="ui-btn ui-btn-inline" data-ajax="false">Home</a>
+                <a href="about_us.html" class="ui-btn ui-btn-inline" data-ajax="false">About</a>
+                <a href="#registerPage" class="ui-btn ui-btn-inline">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#registerForm').on('submit', function(e) {
+                e.preventDefault();
+                $('.success-message').fadeIn();
+                this.reset();
+                setTimeout(function() {
+                    $('.success-message').fadeOut();
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
